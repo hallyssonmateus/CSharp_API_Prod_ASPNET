@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "hndyhJFyh83RLAzIq66iYerdF4HGopMob2kuxkiZpgg=",
+  "Source": "CSharp_API_Prod_ASPNET",
+  "BasePath": "_content/CSharp_API_Prod_ASPNET",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

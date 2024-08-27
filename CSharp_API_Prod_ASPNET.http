@@ -1,0 +1,6 @@
+@CSharp_API_Prod_ASPNET_HostAddress = http://localhost:5090
+
+GET {{CSharp_API_Prod_ASPNET_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

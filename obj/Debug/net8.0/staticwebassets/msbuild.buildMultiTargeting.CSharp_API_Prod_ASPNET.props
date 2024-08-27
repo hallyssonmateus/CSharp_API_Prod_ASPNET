@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\CSharp_API_Prod_ASPNET.props" />
+</Project>
