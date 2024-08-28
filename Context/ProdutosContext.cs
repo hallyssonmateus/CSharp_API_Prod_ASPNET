@@ -9,10 +9,8 @@ namespace CSharp_API_Prod_ASPNET.Context
 {
     public class ProdutosContext : DbContext
     {
-        public ProdutosContext(DbContextOptions<ProdutosContext> options) : base(options){
+        public ProdutosContext(DbContextOptions<ProdutosContext> options) : base(options) { }
 
-        }
-
-        public DbSet<Produto> Produtos{ get; set; }
+        public DbSet<Produto> Produtos { get; set; }
     }
 }
