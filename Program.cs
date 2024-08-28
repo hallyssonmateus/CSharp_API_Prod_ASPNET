@@ -1,6 +1,11 @@
+using CSharp_API_Prod_ASPNET.Context;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<ProdutosContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ConexãoPadrao")));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
