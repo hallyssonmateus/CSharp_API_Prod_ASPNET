@@ -45,6 +45,21 @@ namespace CSharp_API_Prod_ASPNET.Controllers
             return Ok(produto);
         }
 
+        [HttpGet("listagem")]
+        public IActionResult ListarProdutos(){
+            // Recupera todos os produtos do banco de dados
+            var produtos = _context.Produtos.ToList();
+
+            // Verifica se a lista de produtos está vazia
+            if (produtos == null || !produtos.Any())
+            {
+                return NotFound("Nenhum produto encontrado.");
+            }
+
+            // Retorna a lista de produtos
+            return Ok(produtos);
+}
+
         [HttpPut("alteracao/{Id}")]
         public IActionResult Atualizar(int Id, Produto produto){
             
