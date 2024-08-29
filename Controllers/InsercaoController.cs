@@ -21,7 +21,7 @@ namespace CSharp_API_Prod_ASPNET.Controllers
             _context = context;
         }
 
-        [HttpPost]
+        [HttpPost("Insercao")]
         public IActionResult Create(Produto produto){
             if(produto == null){
                 return BadRequest();
@@ -32,7 +32,50 @@ namespace CSharp_API_Prod_ASPNET.Controllers
             return Ok(produto);
         }
 
+        [HttpGet("ObterporID/{Id}")]
+        public IActionResult ObterporID(int Id){
+            
+            var produto = _context.Produtos.Find(Id);
 
-        
+            if(produto == null){
+                return NotFound();
+            }
+
+            
+            return Ok(produto);
+        }
+
+        [HttpPut("alteracao/{Id}")]
+        public IActionResult Atualizar(int Id, Produto produto){
+            
+            var produtoBanco = _context.Produtos.Find(Id);
+
+            if(produtoBanco == null){
+                return NotFound();
+            }
+
+            produtoBanco.Nome = produto.Nome;
+            produtoBanco.Tipo = produto.Tipo;
+            produtoBanco.precoUnitario = produto.precoUnitario;
+
+            _context.Produtos.Update(produtoBanco);
+            _context.SaveChanges();
+            
+            return Ok(produtoBanco);
+        }
+
+        [HttpDelete("delecao/{Id}")]
+        public IActionResult Deletar(int Id){
+            
+            var produtoBanco = _context.Produtos.Find(Id);
+
+            if(produtoBanco == null){
+                return NotFound();
+            }
+
+            _context.Produtos.Remove(produtoBanco);
+            _context.SaveChanges();            
+            return NoContent();
+        }
     }
 }
